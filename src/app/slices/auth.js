@@ -66,4 +66,7 @@ const authSlice = createSlice({
 export const { setUser, clearUser } = authSlice.actions;
 export default authSlice.reducer;
 
+// it is reducer for authentication, by which no need change every time just apply reducer hook and emplement all over the authentication.
+
+
 
