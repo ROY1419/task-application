@@ -3,16 +3,19 @@ import { Formik } from "formik";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import app_config from "../../config";
 
 const Login = () => {
   const navigate = useNavigate();
+  const url = app_config.backend_url
   const loginform = {
     email: "",
     password: "",
   };
 
+
   const loginSubmit = (formdata) => {
-    fetch("http://localhost:5001/user/authenticate", {
+    fetch( url+"/user/authenticate", {
       method: "POST",
       body: JSON.stringify(formdata), //convert javascript to json
       headers: {
@@ -53,7 +56,7 @@ const Login = () => {
               src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
             /> */}
 
-            <div
+            {/* <div
               style={{
                 background:
                   "url(https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)",
@@ -61,51 +64,52 @@ const Login = () => {
                 width: "27rem",
                 backgroundPosition: "center",
               }}
-            >
-              
-            </div>
-            <h3 className="mt-5 mb-5">Login Here</h3>
+            > */}
 
-            <Formik initialValues={loginform} onSubmit={loginSubmit}>
-              {({ values, handleChange, handleSubmit }) => (
-                <form onSubmit={handleSubmit}>
-                  <div className="form-floating mt-3">
-                    <input
-                      className="form-control"
-                      placeholder="Email"
-                      id="email"
-                      value={values.email}
-                      onChange={handleChange}
-                    />
-                    <label>Email</label>
-                  </div>
+          </div>
+          <h3 className="mt-5 mb-5">Login Here</h3>
 
-                  <TextField
-                    variant="outlined"
-                    className="w-50 align-center mt-3"
-                    label="Password"
-                    type="password"
-                    id="password"
-                    value={values.password}
+          <Formik initialValues={loginform} onSubmit={loginSubmit}>
+            {({ values, handleChange, handleSubmit }) => (
+              <form onSubmit={handleSubmit}>
+                <div className="form-floating mt-3">
+                  <input
+                    className="form-control"
+                    placeholder="Email"
+                    id="email"
+                    value={values.email}
                     onChange={handleChange}
                   />
+                  <label>Email</label>
+                </div>
 
-                  <Button
-                    type="submit"
-                    className="w-100 mt-3"
-                    variant="contained"
-                    color="primary"
-                    // sx={{ color: "red", background: "white" }}
-                  >
-                    Login Now
-                  </Button>
-                </form>
-              )}
-            </Formik>
-          </div>
+                <TextField
+                  variant="outlined"
+                  className="w-100 align-center mt-3"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  value={values.password}
+                  onChange={handleChange}
+                />
+
+                <Button
+                  type="submit"
+                  className="w-100 mt-3"
+                  variant="contained"
+                  color="primary"
+                // sx={{ color: "red", background: "white" }}
+                >
+                  Login Now
+                </Button>
+                
+              </form>
+            )}
+          </Formik>
         </div>
       </div>
     </div>
+
   );
 };
 

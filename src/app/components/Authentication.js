@@ -3,18 +3,19 @@ import { Formik } from 'formik';
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import app_config from '../../config';
 import { AppContext } from '../AppContext';
 
 const Authenticate = () => {
-  
+    
     const navigate = useNavigate();
-
+    const url = app_config.backend_url
     const {setLoggedIn} = useContext(AppContext);
 
     const userSubmit = async (formdata) => {
         console.log(formdata);
 
-        const response = await fetch('http://localhost:5001/user/authenticate', {
+        const response = await fetch(url+'/user/authenticate', {
             method : 'POST',
             body : JSON.stringify(formdata),
             headers : {

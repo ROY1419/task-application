@@ -26,22 +26,22 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="text-neutral-600 text-base leading-4">
-                            <Link to={"/#"} className="nav-link">
+                            <Link to={"#"} className="nav-link">
                                 For creators
                             </Link>
                         </div>
                         <div className="text-neutral-600 text-sm leading-4">
-                            <Link to={"/#"} className="nav-link">
+                            <Link to={"#"} className="nav-link">
                                 Pricing
 
                             </Link></div>
                         <div className="text-neutral-600 text-sm leading-4">
-                            <Link to={"/#"} className="nav-link">
+                            <Link to={"#"} className="nav-link">
                                 Contact us
                             </Link>
                         </div>
                         <div className="text-neutral-600 text-sm leading-4 whitespace-nowrap">
-                            <Link to={"/#"} className="nav-link">
+                            <Link to={"#"} className="nav-link">
                                 Blogs
                             </Link>
                         </div>
